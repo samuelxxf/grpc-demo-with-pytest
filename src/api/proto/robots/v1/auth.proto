@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package robots.v1;
+
+import "robots/v1/common.proto";
+import "google/api/annotations.proto";
+
+// AuthService provides authentication related services.
+service AuthService {
+  // Login authenticates a user and returns a token.
+  rpc Login(LoginRequest) returns (LoginResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/auth/login"
+      body: "*"
+    };
+  }
+
+  // Logout for the given session
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/auth/logout"
+      body: "*"
+    };
+  }
+}
+
+// LoginRequest is the request message for Login RPC.
+message LoginRequest {
+  // auth method
+  oneof method {
+    // username + passwd
+    LoginPasswd password = 1;
+    // API token
+    LoginToken token = 2;
+  }
+}
+
+// LoginResponse is the response message for Login RPC.
+message LoginResponse {
+  // token is this session authentication token returned on success.
+  string session_token = 1;
+  // errcode is the error code, 0 means success.
+  int32 errcode = 2;
+  // message is the error message or success message.
+  string message = 3;
+}
+
+// Password method for authentication
+message LoginPasswd {
+  // username for authentication.
+  string name = 1;
+  // user's password.
+  string password = 2;
+}
+
+// Token Method for authentication
+message LoginToken {
+  // existing token for authentication.
+  string token = 1;
+}
+
+// logout param
+message LogoutRequest {
+  // the token returned by login
+  string session_token = 1;
+}
+
+// logout result
+message LogoutResponse {
+  // return
+  CommonRet ret = 1;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package robots.v1;
+
+// CommonRet is a common response structure for API calls.
+message CommonRet {
+  // errcode is the error code, 0 means success.
+  int32 errcode = 1;
+  // message is the error message or success message.
+  string message = 2;
+}

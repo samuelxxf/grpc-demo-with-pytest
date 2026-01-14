@@ -1,0 +1,41 @@
+version: v1
+
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/xxf/grpc-test/gen/gateway
+
+plugins:
+  # ==================== C++ ====================
+  - plugin: buf.build/protocolbuffers/cpp
+    out: gen/cpp
+
+  - plugin: buf.build/grpc/cpp
+    out: gen/cpp
+
+  # ==================== Python ====================
+  - plugin: buf.build/protocolbuffers/python
+    out: gen/python
+
+  - plugin: buf.build/grpc/python
+    out: gen/python
+
+  - plugin: buf.build/protocolbuffers/pyi
+    out: gen/python
+
+  # ==================== grpc-gateway (Go) ====================
+  - plugin: buf.build/protocolbuffers/go
+    out: gen/gateway
+    opt: paths=source_relative
+
+  - plugin: buf.build/grpc/go
+    out: gen/gateway
+    opt: paths=source_relative
+
+  - plugin: buf.build/grpc-ecosystem/gateway:v2.18.0
+    out: gen/gateway
+    opt: paths=source_relative
+
+  # OpenAPI documentation
+  - plugin: buf.build/grpc-ecosystem/openapiv2:v2.18.0
+    out: gen/gateway

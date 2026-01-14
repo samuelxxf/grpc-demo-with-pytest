@@ -1,5 +1,6 @@
 /build
 /log
 /install
+/gen
 __pycache__
 src/tests/reports

@@ -12,7 +12,9 @@
       "Bash(pkill:*)",
       "Bash(tree:*)",
       "Bash(dpkg -l:*)",
-      "Bash(dpkg -L:*)"
+      "Bash(dpkg -L:*)",
+      "Bash(buf:*)",
+      "Bash(find:*)"
     ]
   }
 }
