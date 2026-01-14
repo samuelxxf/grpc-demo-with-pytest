@@ -14,7 +14,12 @@
       "Bash(dpkg -l:*)",
       "Bash(dpkg -L:*)",
       "Bash(buf:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(go mod tidy:*)",
+      "Bash(/usr/bin/go version:*)",
+      "Bash(export PATH=\"/usr/bin:$PATH\")",
+      "Bash(/usr/bin/go mod tidy:*)",
+      "Bash(/usr/bin/go build:*)"
     ]
   }
 }
