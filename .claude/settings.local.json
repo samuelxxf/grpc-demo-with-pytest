@@ -3,7 +3,16 @@
     "allow": [
       "Bash(ldd:*)",
       "Bash(ls:*)",
-      "Bash(nm:*)"
+      "Bash(nm:*)",
+      "Bash(chmod:*)",
+      "Bash(pip3 install:*)",
+      "Bash(bash:*)",
+      "Bash(pytest:*)",
+      "Bash(python3 -m pytest:*)",
+      "Bash(pkill:*)",
+      "Bash(tree:*)",
+      "Bash(dpkg -l:*)",
+      "Bash(dpkg -L:*)"
     ]
   }
 }
